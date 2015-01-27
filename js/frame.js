@@ -1,5 +1,9 @@
 var Frame = function() {
 
-  this.pinNumber = 10;
+  this.fullPins = 10;
 
+};
+
+Frame.prototype.resetPins = function() {
+  return this.fullPins;
 };
