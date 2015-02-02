@@ -20,18 +20,6 @@ describe("Frame", function() {
       expect(player.bowl).toHaveBeenCalled();
     });
 
-    it("can receive a strike", function() {
-      frame.receiveBowl(player);
-      frame.strike();
-      
-      expect(frame.pins).toEqual([]);
-    });
-
-    it("can receive a spare", function() {
-      frame.receiveBowl(player);
-      expect(frame.pins).toEqual([1, 2, 3, 4, 5]);
-    });
-
   });
 
 });

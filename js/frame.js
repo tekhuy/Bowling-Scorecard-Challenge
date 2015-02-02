@@ -11,8 +11,3 @@ Frame.prototype.resetPins = function() {
 Frame.prototype.receiveBowl = function(player) {
   player.bowl();
 };
-
-Frame.prototype.strike = function() {
-  this.pins = [];
-};
-
