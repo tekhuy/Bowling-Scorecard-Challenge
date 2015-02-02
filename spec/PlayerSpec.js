@@ -12,6 +12,10 @@ describe("Player", function() {
       expect(player.points).toEqual(0);
     });
 
+    it("can bowl", function() {
+      expect(player.bowl).toBe(true);
+    });
+
   });
 
 }); 

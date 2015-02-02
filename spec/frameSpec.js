@@ -1,20 +1,35 @@
 describe("Frame", function() {
 
   var frame;
+  var player;
 
   beforeEach(function() {
     frame = new Frame();
+    player = jasmine.createSpyObj('player', ['bowl']);
   });
 
   describe("at the start of a new frame", function() {
 
     it("will have 10 pins", function() {
-      expect(frame.resetPins()).toEqual(10);
+      expect(frame.resetPins()).toEqual([1, 2, 3, 4, 5, 6, 7, 8 , 9 , 10]);
     });
 
     it("can receive a bowl", function() {
-      frame.resetPins();
-      expect(frame.bowl).toEqual(1);
+      frame.receiveBowl(player);
+
+      expect(player.bowl).toHaveBeenCalled();
+    });
+
+    it("can receive a strike", function() {
+      frame.receiveBowl(player);
+      frame.strike();
+      
+      expect(frame.pins).toEqual([]);
+    });
+
+    it("can receive a spare", function() {
+      frame.receiveBowl(player);
+      expect(frame.pins).toEqual([1, 2, 3, 4, 5]);
     });
 
   });
